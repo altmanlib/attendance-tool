@@ -68,7 +68,7 @@ dist\考勤统计工具\
 
 构建完成后，在该运行记录底部的「Artifacts」下载 `attendance-tool-windows`。解压下载的 ZIP 后，将完整的 `考勤统计工具` 文件夹交付给用户
 
-也可推送形如 `v1.0.0` 的 Git 标签自动触发构建
+推送形如 `v1.0.0` 的 Git 标签会自动触发构建、创建同名 GitHub Release，并将 `考勤统计工具-windows.zip` 附加到 Release。普通用户可在仓库的「Releases」页面直接下载该安装包
 
 ## 本地开发运行
 
