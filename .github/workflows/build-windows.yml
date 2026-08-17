@@ -1,0 +1,46 @@
+name: Build Windows executable
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Package Windows application
+    runs-on: windows-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.2
+        with:
+          persist-credentials: false
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@d0cc045d04ccac9d8b7881df0226f9e82c39688e # v6.8.0
+        with:
+          enable-cache: false
+
+      - name: Install dependencies
+        run: uv sync --all-groups --frozen
+
+      - name: Build executable
+        run: >-
+          uv run pyinstaller --noconfirm --clean --windowed --onedir
+          --name "考勤统计工具" main.py
+
+      - name: Create distribution archive
+        shell: pwsh
+        run: Compress-Archive -Path "dist/考勤统计工具" -DestinationPath "dist/考勤统计工具-windows.zip"
+
+      - name: Upload Windows package
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: attendance-tool-windows
+          path: dist/考勤统计工具-windows.zip
+          if-no-files-found: error
+          retention-days: 30

@@ -62,6 +62,14 @@ dist\考勤统计工具\
 
 `--onedir` 是推荐方式：启动更快，且被安全软件误报的概率通常低于单文件程序。若必须交付单个可执行文件，可将命令中的 `--onedir` 替换为 `--onefile`；生成的文件位于 `dist\考勤统计工具.exe`
 
+## 使用 GitHub Actions 打包
+
+代码推送到 GitHub 后，打开仓库的「Actions」→「Build Windows executable」→「Run workflow」，即可在 GitHub 的 Windows 环境中打包，无需本地 Windows 设备
+
+构建完成后，在该运行记录底部的「Artifacts」下载 `attendance-tool-windows`。解压下载的 ZIP 后，将完整的 `考勤统计工具` 文件夹交付给用户
+
+也可推送形如 `v1.0.0` 的 Git 标签自动触发构建
+
 ## 本地开发运行
 
 需要安装 [uv](https://docs.astral.sh/uv/)，然后在项目目录执行：
