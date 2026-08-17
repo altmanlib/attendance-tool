@@ -2,9 +2,13 @@
 name = "attendance-tool"
 version = "0.1.0"
 description = "Add your description here"
-readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
     "openpyxl>=3.1.5",
     "pandas>=3.0.5",
+]
+
+[dependency-groups]
+dev = [
+    "pyinstaller>=6.22.1",
 ]
