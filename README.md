@@ -4,10 +4,10 @@
 
 ## 普通用户使用
 
-Windows 用户无需安装 Python。请从发布包中解压整个 `考勤统计工具` 文件夹，并双击：
+Windows 用户无需安装 Python。请从发布包中解压整个 `attendance-tool` 文件夹，并双击：
 
 ```text
-考勤统计工具.exe
+attendance-tool.exe
 ```
 
 > 不要只复制 `.exe` 文件，必须保留同级的 `_internal` 文件夹。若 Windows 弹出安全提示，选择「更多信息」→「仍要运行」
@@ -47,26 +47,26 @@ uv sync --all-groups
 ### 3. 执行打包
 
 ```powershell
-uv run pyinstaller --noconfirm --clean --windowed --onedir --name 考勤统计工具 main.py
+uv run pyinstaller --noconfirm --clean --windowed --onedir --name attendance-tool main.py
 ```
 
 打包结果位于：
 
 ```text
-dist\考勤统计工具\
-├── 考勤统计工具.exe
+dist\attendance-tool\
+├── attendance-tool.exe
 └── _internal\
 ```
 
-将整个 `dist\考勤统计工具` 文件夹压缩后交付给用户
+将整个 `dist\attendance-tool` 文件夹压缩后交付给用户
 
-`--onedir` 是推荐方式：启动更快，且被安全软件误报的概率通常低于单文件程序。若必须交付单个可执行文件，可将命令中的 `--onedir` 替换为 `--onefile`；生成的文件位于 `dist\考勤统计工具.exe`
+`--onedir` 是推荐方式：启动更快，且被安全软件误报的概率通常低于单文件程序。若必须交付单个可执行文件，可将命令中的 `--onedir` 替换为 `--onefile`；生成的文件位于 `dist\attendance-tool.exe`
 
 ## 使用 GitHub Actions 打包
 
 代码推送到 GitHub 后，打开仓库的「Actions」→「Build Windows executable」→「Run workflow」，即可在 GitHub 的 Windows 环境中打包，无需本地 Windows 设备
 
-构建完成后，在该运行记录底部的「Artifacts」下载 `attendance-tool-windows`。解压下载的 ZIP 后，将完整的 `考勤统计工具` 文件夹交付给用户
+构建完成后，在该运行记录底部的「Artifacts」下载 `attendance-tool-windows`。解压下载的 ZIP 后，将完整的 `attendance-tool` 文件夹交付给用户
 
 推送形如 `v1.0.0` 的 Git 标签会自动触发构建、创建同名 GitHub Release，并将 `attendance-tool-windows.zip` 附加到 Release。普通用户可在仓库的「Releases」页面直接下载该安装包
 

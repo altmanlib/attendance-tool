@@ -31,11 +31,11 @@ jobs:
       - name: Build executable
         run: >-
           uv run pyinstaller --noconfirm --clean --windowed --onedir
-          --name "考勤统计工具" main.py
+          --name "attendance-tool" main.py
 
       - name: Create distribution archive
         shell: pwsh
-        run: Compress-Archive -Path "dist/考勤统计工具" -DestinationPath "dist/attendance-tool-windows.zip"
+        run: Compress-Archive -Path "dist/attendance-tool" -DestinationPath "dist/attendance-tool-windows.zip"
 
       - name: Upload Windows package
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
