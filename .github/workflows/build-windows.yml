@@ -31,7 +31,7 @@ jobs:
       - name: Build executable
         run: >-
           uv run pyinstaller --noconfirm --clean --windowed --onedir
-          --name "attendance-tool" main.py
+          --name "attendance-tool" --icon "assets/app.ico" main.py
 
       - name: Create distribution archive
         shell: pwsh

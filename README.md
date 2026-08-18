@@ -47,7 +47,7 @@ uv sync --all-groups
 ### 3. 执行打包
 
 ```powershell
-uv run pyinstaller --noconfirm --clean --windowed --onedir --name attendance-tool main.py
+uv run pyinstaller --noconfirm --clean --windowed --onedir --name attendance-tool --icon assets/app.ico main.py
 ```
 
 打包结果位于：
