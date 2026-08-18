@@ -12,7 +12,7 @@ permissions:
 jobs:
   build:
     name: Package Windows application
-    runs-on: windows-latest
+    runs-on: windows-2022
 
     steps:
       - name: Check out repository
